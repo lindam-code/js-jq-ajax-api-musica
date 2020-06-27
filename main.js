@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-
-
 	// Chiamata per mostrare i cd
 	$.ajax(
     {
@@ -11,7 +9,7 @@ $(document).ready(function() {
 
 				// Creo un array di cd della chiamata Ajax
 				var arrayCd = data.response;
-				// Stampo i cd in base al gener musicale scelto
+				// Stampo i cd in base al gener musicale scelto richiamando una funzione
 				showCd(arrayCd);
 
 				// Registro la scelta del genere musicale dell'utente
@@ -19,7 +17,7 @@ $(document).ready(function() {
 					var selectedGenre = $(this).val();
 
 					// Controllo il genere di ogni cd e lo mostro solo se uguale al genere scelto
-					// se l'utente non scegie niente, li mostro tutti di default 
+					// se l'utente non sceglie niente, mostro tutti i cd
 					$('.cd').each(function(){
 						var cdGenre = $(this).attr('data-genre').toLowerCase();
 						if (selectedGenre === 'all') {
@@ -48,21 +46,11 @@ $(document).ready(function() {
 		for (var i = 0; i < arrayCd.length; i++) {
 			// Creo variabile per singolo cd
 			var singleCd = arrayCd[i];
-
-				var html = template(singleCd);
-				$('.cds-container').append(html);
+			// Compilo il template
+			var html = template(singleCd);
+			// Appendo il template compilato alla pagina
+			$('.cds-container').append(html);
 			};
 	};
 
 });
-
-// Bonus: Creare una select con i seguenti generi: pop, rock, metal e jazz.
-// In base a cosa scegliamo nella select vedremo i corrispondenti cd.
-// $('.select-item').change(function(){
-//
-// 	var selectedGenre = '';
-// 	$('.select-item option:selected').each(function(){
-// 		selectedGenre += $(this).val();
-// 		if (selectedGenre === (singleCd.genre).toLowerCase()) {};
-// 	});
-// });
