@@ -20,11 +20,14 @@ header {
     width: 100%;
     height: 70px;
     background: rgb(46, 58, 70);
+    font-size: 20px;
 }
 header img {
     height: 50px;
     margin-top: 10px;
+    vertical-align: middle;
 }
+
 
 .cds-container {
     display: flex;

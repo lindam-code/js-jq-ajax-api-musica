@@ -12,8 +12,17 @@
         <header>
             <div class="container">
                 <img src="logo.png" alt="logo" />
+                <label for="select-genre">Scegli il genere musicale che vuoi ascoltare</label>
+                <select class="select-genre" name="music-genre">
+                  <option value="all">All genres</option>
+                  <option value="pop">Pop music</option>
+                  <option value="rock">Rock music</option>
+                  <option value="metal">Metal music</option>
+                  <option value="jazz">Jazz music</option>
+                </select>
             </div>
         </header>
+
 
         <div class="cds-container container">
             <!-- Disco ad esempio -->
@@ -28,7 +37,7 @@
 
         <!-- Template di Handlebars -->
         <script id="cd-template" type="text/x-handlebars-template">
-          <div class="cd">
+          <div class="cd" data-genre="{{genre}}">
               <img src="{{poster}}" alt="">
               <h3>{{title}}</h3>
               <span class="author">{{author}}</span>
